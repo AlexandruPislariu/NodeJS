@@ -19,6 +19,17 @@ app.get("/dog", function(req, res)
     res.send("HAM!!");
 });
 
+// Subreddit
+app.get("/r/:subredditName", function(req, res)
+{
+    res.send("Welcome from a subreddit!");
+});
+
+app.get("*", function(req, res)
+{
+    res.send("You are a star!!");
+});
+
 // Tell Express to listen for requests (start server)
 app.listen(3000, function()
 {
