@@ -9,22 +9,17 @@ app.get("/", function(req, res)
 
 // An animal speak
 app.get("/speak/:animal/", function(req,res)
-{
-    let animal = req.params.animal;
-    let message;
+{   
+    let sounds = 
+    {
+        pig : "Oink",
+        cow : "Moo",
+        dog : "Woof woof!",
+        cat : "Mewo!"
+    };
+    let animal = req.params.animal.toLowerCase();
 
-    if(animal==="pig")
-        message = "Oink";
-    else 
-        if(animal==="cow")
-            message = "Moo";
-    else
-        if(animal==="dog")
-            message = "Woof wooof!";
-        else
-            message = "Sorry, page not found...";
-
-    res.send(message);
+    res.send('"' + sounds[animal] + '"');
 });
 
 // Repeat messages
