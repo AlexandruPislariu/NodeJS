@@ -21,8 +21,16 @@ app.get("/dog", function(req, res)
 
 // Subreddit
 app.get("/r/:subredditName", function(req, res)
-{
-    res.send("Welcome from a subreddit!");
+{   
+    let subreddit = req.params.subredditName;
+    console.log(req.params);
+    res.send("WELCOME TO THE " + subreddit.toLocaleUpperCase() + " SUBREDDIT!");
+});
+
+app.get("/r/:subredditName/comments/:id/:title/", function(req, res)
+{   
+    console.log(req.params);
+    res.send("Welcome to the Comments Page!");
 });
 
 app.get("*", function(req, res)
